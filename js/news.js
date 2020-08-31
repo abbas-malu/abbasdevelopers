@@ -67,6 +67,7 @@ xhr.onload = function () {
             <div class="card-body">
               <h5 class="card-title">${element['title']}</h5>
               <p class="card-text">${element["description"]}</p>
+              <p><a href="${element['url']}">Read More...</a></p>
               <p class="card-text"><small class="text-muted">Published At ${element['publishedAt']}</small></p>
             </div>
           </div>
