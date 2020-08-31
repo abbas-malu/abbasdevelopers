@@ -110,9 +110,6 @@ function getDateWise() {
     }
   }
   xhr.send()
-
-
-
 }
 
 let getState = document.getElementById('getState')
