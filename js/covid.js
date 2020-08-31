@@ -31,9 +31,9 @@ function getDateWise() {
 </tbody>
 </table>`
   let btn = document.getElementById('btn')
-  btn.setAttribute('onclick','removeData()')
+  btn.setAttribute('onclick', 'removeData()')
   btn.innerHTML = `Erase Data`
-  
+
   const xhr = new XMLHttpRequest();
   xhr.open('GET', `https://api.covid19india.org/data.json`, true)
 
@@ -111,18 +111,22 @@ function getDateWise() {
   }
   xhr.send()
 
-  let getState = document.getElementById('getState')
-  getState.addEventListener('click', getData)
 
-  function getData() {
-    const xhr = new XMLHttpRequest();
-    let myState = document.getElementById('stateSelect').selectedIndex;
-    let selectedState = stateObj[stateArr[myState - 1]]
-    // console.log(selectedState)
-    xhr.open('GET', `https://api.covid19india.org/data.json`, true)
 
-    xhr.onloadstart = function () {
-      document.getElementById('loading').innerHTML = `<div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+}
+
+let getState = document.getElementById('getState')
+getState.addEventListener('click', getData)
+
+function getData() {
+  const xhr = new XMLHttpRequest();
+  let myState = document.getElementById('stateSelect').selectedIndex;
+  let selectedState = stateObj[stateArr[myState - 1]]
+  // console.log(selectedState)
+  xhr.open('GET', `https://api.covid19india.org/data.json`, true)
+
+  xhr.onloadstart = function () {
+    document.getElementById('loading').innerHTML = `<div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
               <span class="sr-only">Loading...</span>
             </div>
             <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -159,34 +163,34 @@ function getDateWise() {
               <span class="sr-only">Loading...</span>
             </div>`
 
-    }
-    xhr.onloadend = function () {
-      document.getElementById('loading').innerHTML = ''
-    }
+  }
+  xhr.onloadend = function () {
+    document.getElementById('loading').innerHTML = ''
+  }
 
 
 
-    xhr.onload = function () {
-      if (this.status === 200) {
-        let bulkData = JSON.parse(this.responseText)
-        let statewise = bulkData['statewise']
-        statewise.forEach(element => {
-          // console.log(element)
-          let active = element.active
-          let confirmed = element.confirmed
-          let deaths = element.deaths
-          let deltaconfirmed = element.deltaconfirmed
-          let deltadeaths = element.deltadeaths
-          let deltarecovered = element.deltarecovered
-          let lastupdatedtime = element.lastupdatedtime
-          let migratedother = element.migratedother
-          let recovered = element.recovered
-          let state = element.state
-          let statecode = element.statecode
-          let statenotes = element.statenotes
-          if (state == selectedState) {
-            let stateDetails = document.getElementById('stateDetails')
-            stateDetails.innerHTML = `
+  xhr.onload = function () {
+    if (this.status === 200) {
+      let bulkData = JSON.parse(this.responseText)
+      let statewise = bulkData['statewise']
+      statewise.forEach(element => {
+        // console.log(element)
+        let active = element.active
+        let confirmed = element.confirmed
+        let deaths = element.deaths
+        let deltaconfirmed = element.deltaconfirmed
+        let deltadeaths = element.deltadeaths
+        let deltarecovered = element.deltarecovered
+        let lastupdatedtime = element.lastupdatedtime
+        let migratedother = element.migratedother
+        let recovered = element.recovered
+        let state = element.state
+        let statecode = element.statecode
+        let statenotes = element.statenotes
+        if (state == selectedState) {
+          let stateDetails = document.getElementById('stateDetails')
+          stateDetails.innerHTML = `
           <div class="card">
             <div class="card-header">
               <p class="display-4">${state}</p>
@@ -218,16 +222,12 @@ function getDateWise() {
             </div>
           </div>
           `
-          }
-        })
-      }
+        }
+      })
     }
-    xhr.send()
   }
-
+  xhr.send()
 }
-
-
 
 
 for (key in stateObj) {
@@ -318,9 +318,9 @@ function getDistrict() {
 }
 
 function removeData() {
-  let table = document.getElementById('table') 
+  let table = document.getElementById('table')
   table.innerHTML = ``
   let btn = document.getElementById('btn')
-  btn.setAttribute('onclick','getDateWise()')
+  btn.setAttribute('onclick', 'getDateWise()')
   btn.innerHTML = `Get Date Wise Details`
 }
