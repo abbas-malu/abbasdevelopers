@@ -55,6 +55,9 @@ xhr.onload = function () {
         let latNews = ''
         let newsDiv = document.getElementById('newsDiv')
         articles.forEach(function (element, index) {
+          if(element['image']==null){
+            element['image'] = `https://www.classify24.com/wp-content/uploads/2016/09/no-image.png`
+          }
             latNews += `<div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
           <div class="col-md-4">
