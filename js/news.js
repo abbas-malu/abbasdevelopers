@@ -17,6 +17,9 @@ function setTxt() {
             let latNews = ''
             let newsDiv = document.getElementById('newsDiv')
             articles.forEach(function (element, index) {
+              if(element['image']==''){
+                element['image'] = `https://www.classify24.com/wp-content/uploads/2016/09/no-image.png`
+              }
                 latNews += `<div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
               <div class="col-md-4">
@@ -55,7 +58,7 @@ xhr.onload = function () {
             latNews += `<div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
           <div class="col-md-4">
-            <img src="${element['urlToImage']}" class="card-img" alt="...">
+            <img src="${element['image']}" class="card-img" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
