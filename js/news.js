@@ -8,7 +8,7 @@ function setTxt() {
     // console.log(document.getElementById('searchTxt').value)
     let search = document.getElementById('searchTxt').value;
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', `https://newsapi.org/v2/everything?q=${search}&apiKey=${apiKey}`, true);
+    xhr.open('GET', `https://gnews.io/api/v3/search?q=${search}&token=6317d4044d7554f6307f3b7417c54010`, true);
 
     xhr.onload = function () {
         if (this.status === 200) {
@@ -20,12 +20,12 @@ function setTxt() {
                 latNews += `<div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="${element['urlToImage']}" class="card-img" alt="...">
+                <img src="${element['image']}" class="card-img" alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">${element['title']}</h5>
-                  <p class="card-text">${element["description"]}</p>
+                  <p class="card-text">${element['description']}</p>
                   <p class="card-text"><small class="text-muted">Published At ${element['publishedAt']}</small></p>
                 </div>
               </div>
@@ -43,7 +43,7 @@ function setTxt() {
 let search = 'microsoft'
 
 const xhr = new XMLHttpRequest();
-xhr.open('GET', `https://newsapi.org/v2/everything?q=${search}&apiKey=${apiKey}`, true);
+xhr.open('GET', `https://gnews.io/api/v3/top-news?token=6317d4044d7554f6307f3b7417c54010`, true);
 
 xhr.onload = function () {
     if (this.status === 200) {
