@@ -12,7 +12,7 @@ xhr.onload = function () {
     }
 }
 xhr.send()
-
+ 
 
 let searchBtn = document.getElementById('citySearch')
 searchBtn.addEventListener('input', setTxt)
