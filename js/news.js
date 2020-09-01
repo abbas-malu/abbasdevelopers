@@ -1,8 +1,8 @@
 // console.log('Its working')
 let apiKey = 'ab75650446d04d60a5742f4b2fa3f88b'
 
-let searchBtn = document.getElementById('searchTxt')
-searchBtn.addEventListener('input', setTxt)
+let searchBtn = document.getElementById('searchBtn')
+searchBtn.addEventListener('click', setTxt)
 
 function setTxt() {
     // console.log(document.getElementById('searchTxt').value)
