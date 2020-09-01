@@ -3,7 +3,7 @@
 let api_key = '70121c1eaf3d32f16cef18f3b0ee3b5c'
 
 const xhr = new XMLHttpRequest();
-xhr.open('GET', `http://api.openweathermap.org/data/2.5/weather?q=indore&appid=${api_key}`, true);
+xhr.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=indore&appid=${api_key}`, true);
 
 xhr.onload = function () {
     if (this.status === 200) {
@@ -23,7 +23,7 @@ function setTxt() {
     let display = document.getElementById('weatherDisplay')
     display.innerHTML = ''
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', `http://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${api_key}`, true);
+    xhr.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${api_key}`, true);
 
     xhr.onload = function () {
         if (this.status === 200) {
