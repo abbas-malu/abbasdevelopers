@@ -6,7 +6,7 @@ let searchBtn = document.getElementById('searchBtn')
 searchBtn.addEventListener('click', getImages)
 function getImages() {
     let searchTxt = document.getElementById('searchTxt').value
-    mainDiv.innerHTML += `<h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">${searchTxt} Gallery</h1>
+    mainDiv.innerHTML = `<h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">${searchTxt} Gallery</h1>
 
         <hr class="mt-2 mb-5">
 
