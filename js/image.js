@@ -5,6 +5,7 @@ let mainDiv = document.getElementById('mainDiv')
 let searchBtn = document.getElementById('searchBtn')
 searchBtn.addEventListener('click', getImages)
 function getImages() {
+    let myHTML = ``
     let searchTxt = document.getElementById('searchTxt').value
     mainDiv.innerHTML = `<h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">${searchTxt} Gallery</h1>
 
@@ -23,9 +24,9 @@ function getImages() {
             let imageData = JSON.parse(this.responseText)
             let images = imageData['hits']
             // console.log(images)
+            let imageMain = document.getElementById('imageMain')
             images.forEach(element => {
-                let imageMain = document.getElementById('imageMain')
-                imageMain.innerHTML += `
+                myHTML += `
                 <div class="col-lg-3 col-md-4 col-6">
                 <div class="d-block mb-4 h-100">
                 <a  data-toggle="modal" data-target="#img${element['id']}">
@@ -82,6 +83,7 @@ function getImages() {
             </div>    
             </div>`
             });
+            imageMain.innerHTML = myHTML;
         }
     }
 
